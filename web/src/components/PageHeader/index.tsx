@@ -5,11 +5,12 @@ import backIcon from '../../assets/images/icons/back.svg';
 
 import './styles.css';
 
-interface Props {
+interface PageHeaderProps {
   title: string;
+  description?: string;
 }
 
-const PageHeader: React.FC<Props> = ({ title, children}) => {
+const PageHeader: React.FC<PageHeaderProps> = (props) => {
   return (
     <header className="page-header">
       <div className="top-bar-container">
@@ -20,8 +21,9 @@ const PageHeader: React.FC<Props> = ({ title, children}) => {
       </div>
 
       <div className="header-content">
-        <strong>{title}</strong>
-        {children}
+        <strong>{props.title}</strong>
+        {props.description ? <p>{props.description}</p> : null} 
+        {props.children}
       </div>
 
     </header>
